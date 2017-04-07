@@ -1,15 +1,18 @@
-//Business Logic
+/*************
+Business Logic
+**************/
 
-function Pizza(name, size, phone, date, time){
+function Pizza(name, size, phone, date, pickuptime, deliverytime){
   this.name = name;
   this.size = size;
-  this.telephone = phone;
+  this.phone = phone;
   this.date = date;
-  this.time = time;
-  this.address = [];
+  this.pickuptime = pickuptime;
+  this.deliverytime = deliverytime;
+  this.addresses = [];
   this.finalCost = 0;
   this.meatToppings = [];
-  this.veggieToppins = [];
+  this.veggieToppings = [];
 }
 
 function Address(street, city, state, zipcode) {
@@ -34,7 +37,7 @@ Pizza.prototype.totalCost = function(){
       this.finalCost += 2;
     }
     //Each veggie toppings cost $1 extra
-    for (var i=0; i< this.veggieToppins.length; i++) {
+    for (var i=0; i< this.veggieToppings.length; i++) {
       this.finalCost += 1;
     }
 }
@@ -42,22 +45,41 @@ Pizza.prototype.totalCost = function(){
 //concate street, city , state and zip code
 
 Address.prototype.fullAddress = function(){
-  return "<p>" + this.street + " ,</p><p>" + this.city + ", " + this.state + " " + this.zipcode + "</p>";
+  return this.street + " ," + this.city + ", " + this.state + " " + this.zipcode;
 }
 
-//UI Logic
+/*************
+UI Logic
+**************/
 
 $(document).ready(function(){
+
+  //Click pickup order button
+  $("button#pickup").click(function(){
+    $("#order-type").hide();
+    $("#main-page").show();
+    $(".delivery-order").hide();
+  });
+
+  $("button#delivery").click(function(){
+    $("#order-type").hide();
+    $("#main-page").show();
+    $(".pickup-order").hide();
+  });
+
+
   $("form#pizza-order").submit(function(event){
     event.preventDefault();
 
+    $("#orderlist")
     //create variables to store user input and store the data in new pizza object
     var nameInput = $("input#name").val();
     var sizeInput = $("#size").val();
     var phoneInput = $("#phone").val();
     var dateInput = $("#date").val();
-    var timeInput = $("#time").val();
-    var newPizzaOrder = new Pizza(nameInput, sizeInput, phoneInput, dateInput, timeInput);
+    var pickupTimeInput = $("#p-time").val();
+    var deliveryTimeInput = $("#d-time").val();
+    var newPizzaOrder = new Pizza(nameInput, sizeInput, phoneInput, dateInput, pickupTimeInput, deliveryTimeInput);
 
     //put user address info to Pizza object
     var streetInput = $("#street").val();
@@ -66,8 +88,8 @@ $(document).ready(function(){
     var zipCodeInput = $("#zipcode").val();
     var addressInput = new Address(streetInput, cityInput, stateInput, zipCodeInput);
 
-    newPizzaOrder.address.push(addressInput);
-    console.log(newPizzaOrder.address);
+    newPizzaOrder.addresses.push(addressInput);
+    console.log(newPizzaOrder.addresses);
 
     $("input:checkbox[name=meat-topping]:checked").each(function(){
       var meatsInput = $(this).val();
@@ -76,28 +98,47 @@ $(document).ready(function(){
 
     $("input:checkbox[name=veggie-topping]:checked").each(function(){
       var veggiesInput = $(this).val();
-      newPizzaOrder.veggieToppins.push(veggiesInput);
+      newPizzaOrder.veggieToppings.push(veggiesInput);
     });
+
+    //Order list
+    $("#orderlist ul").append("<li><span class='order-list'>" + newPizzaOrder.name + "</span></li>");
 
     //Order details
-    $(".customer-name").text(newPizzaOrder.name);
-    $(".p-size").text(newPizzaOrder.size);
-
-    newPizzaOrder.meatToppings.forEach(function(meattopping) {
-      $(".p-toppings").append("<li>" + meattopping + "</li>");
+    $(".order-list").last().click(function() {
+      $(".order-detail").show();
+      $(".customer-name").text(newPizzaOrder.name);
+      $(".p-size").text(newPizzaOrder.size);
+      $(".p-phone").text(newPizzaOrder.phone);
+      $(".d-time").text(newPizzaOrder.deliverytime);
+      $(".p-time").text(newPizzaOrder.pickuptime);
+      newPizzaOrder.addresses.forEach(function(address){
+        $(".p-address").text(address.fullAddress());
+      });
+      newPizzaOrder.meatToppings.forEach(function(meattopping) {
+        $(".p-toppings").append("<li>" + meattopping + "</li>");
+      });
+      newPizzaOrder.veggieToppings.forEach(function(meattopping) {
+        $(".p-toppings").append("<li>" + meattopping + "</li>");
+      });
+      newPizzaOrder.totalCost();
+      $(".p-price").text(newPizzaOrder.finalCost);
     });
 
-    newPizzaOrder.veggieToppins.forEach(function(veggietopping) {
-      $(".p-toppings").append("<li>" + veggietopping + "</li>");
-    });
 
-    newPizzaOrder.totalCost();
-    $(".p-price").text(newPizzaOrder.finalCost);
+
 
     $("input#name").val("");
-    $("#size").val("");
+    $("input#phone").val("");
+    $("input#date").val("");
+    $("input#p-time").val("");
+    $("input#d-time").val("");
+    $("input#street").val("");
+    $("input#city").val("");
+    $("input#state").val("");
+    $("input#zipcode").val("");
     $('input[type=checkbox]').each(function() {
-        this.checked = false;
+      this.checked = false;
     });
   });
 });

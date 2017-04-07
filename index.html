@@ -39,7 +39,7 @@
     </div>
 
     <!-- Order Form -->
-    <div id="order-form">
+    <div id="main-page" class="mt-4">
       <div class="row">
         <div class="col-lg-6">
           <form id="pizza-order">
@@ -61,11 +61,11 @@
                 <input class="form-control" type="date" value="" id="date">
               </div>
             </div>
-            <div class="form-group row justify-content-center">
-              <label for="time" class="col-4 col-form-label"><strong>Pickup Time: </strong></label>
+            <div class="form-group row justify-content-center pickup-order">
+              <label for="p-time" class="col-4 col-form-label"><strong>Pickup Time: </strong></label>
               <div class="col-6">
-                <select class="form-control" id="time">
-                  <option>16:00 PM</option>
+                <select class="form-control" id="p-time">
+                  <option val="16:00 PM">16:00 PM</option>
                   <option>17:00 PM</option>
                   <option>18:00 PM</option>
                   <option>19:00 PM</option>
@@ -74,7 +74,20 @@
                 </select>
               </div>
             </div>
-            <div class="delivery-address">
+            <div class="delivery-order">
+              <div class="form-group row justify-content-center">
+                <label for="d-time" class="col-4 col-form-label"><strong>Delivery Time: </strong></label>
+                <div class="col-6">
+                  <select class="form-control" id="d-time">
+                    <option>16:00 PM</option>
+                    <option>17:00 PM</option>
+                    <option>18:00 PM</option>
+                    <option>19:00 PM</option>
+                    <option>20:00 PM</option>
+                    <option>21:00 PM</option>
+                  </select>
+                </div>
+              </div>
               <div class="form-group row justify-content-center">
                 <label for="street" class="col-2 col-form-label"><strong>Street:</strong></label>
                 <div class="col-8">
@@ -221,19 +234,33 @@
                 </div>
               </div>
             </div>
-             <button type="submit" class="btn btn-primary mt-3">Submit</button>
+             <button type="submit" class="btn btn-primary mt-3">Add Order</button>
           </form>
         </div>
+
+
+        <!-- Pickup/Delivey Order List -->
         <div class="col-lg-6">
           <section id="orderlist">
             <h5>You order:</h5>
             <ul></ul>
           </section>
-          <section id="orderdetail" class="mt-5">
-            <h4>Hello <span class="customer-name"></span>, here is your order:</h4>
-            <p>You ordered <span class="p-size"></span> size pizza with: </p>
+          <section class="order-detail" class="mt-5">
+            <h6>Hello <span class="customer-name"></span>,</h6>
+            <p>You ordered <span class="p-size"></span> pizza with: </p>
             <ul class="p-toppings"></ul>
-            <p>Total price is $ <span class="p-price"></span>.00 .</p>
+            <!-- delivery-order -->
+            <div class="delivery-order">
+              <p>You phone: <span class="p-phone"></span></p>
+              <p>Your address: <span class="p-address"></span></p>
+              <p>Delivery Time: <span class="d-time"></span></p>
+            </div>
+            <!-- Pickup Order -->
+            <div class="pickup-order">
+              <p>Schedule pick up time: <span class="p-time"></span></p>
+            </div>
+
+            <p>Total price is $ <span class="p-price"></span>.00</p>
           </section>
         </div>
       </div>
