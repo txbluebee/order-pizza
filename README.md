@@ -1,8 +1,8 @@
 ## Specifications
 
 * Create pizza object to track the pizza order
-  * Example input: Pizza(Name, size, totalcost);
-  * Example output: pizza1("Brian", "big", 20);
+  * Example input: Pizza(Name, size);
+  * Example output: pizza1("Brian", "large");
 
 * Create 2 empty arrays meatToppings and veggieToppins to store the meat and veggies toppings customer select.
 
