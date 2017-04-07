@@ -1,13 +1,25 @@
 //Business Logic
 
-function Pizza(name, size){
+function Pizza(name, size, phone, date, time){
   this.name = name;
   this.size = size;
+  this.telephone = phone;
+  this.date = date;
+  this.time = time;
+  this.address = [];
   this.finalCost = 0;
   this.meatToppings = [];
   this.veggieToppins = [];
 }
 
+function Address(street, city, state, zipcode) {
+  this.street = street;
+  this.city = city;
+  this.state = state;
+  this.zipcode = zipcode;
+}
+
+//calculate total pizza cost
 Pizza.prototype.totalCost = function(){
     //Size
     if (this.size === "large") {
@@ -27,6 +39,12 @@ Pizza.prototype.totalCost = function(){
     }
 }
 
+//concate street, city , state and zip code
+
+Address.prototype.fullAddress = function(){
+  return "<p>" + this.street + " ,</p><p>" + this.city + ", " + this.state + " " + this.zipcode + "</p>";
+}
+
 //UI Logic
 
 $(document).ready(function(){
@@ -36,7 +54,20 @@ $(document).ready(function(){
     //create variables to store user input and store the data in new pizza object
     var nameInput = $("input#name").val();
     var sizeInput = $("#size").val();
-    var newPizzaOrder = new Pizza(nameInput, sizeInput);
+    var phoneInput = $("#phone").val();
+    var dateInput = $("#date").val();
+    var timeInput = $("#time").val();
+    var newPizzaOrder = new Pizza(nameInput, sizeInput, phoneInput, dateInput, timeInput);
+
+    //put user address info to Pizza object
+    var streetInput = $("#street").val();
+    var cityInput = $("#city").val();
+    var stateInput = $("#state").val();
+    var zipCodeInput = $("#zipcode").val();
+    var addressInput = new Address(streetInput, cityInput, stateInput, zipCodeInput);
+
+    newPizzaOrder.address.push(addressInput);
+    console.log(newPizzaOrder.address);
 
     $("input:checkbox[name=meat-topping]:checked").each(function(){
       var meatsInput = $(this).val();
