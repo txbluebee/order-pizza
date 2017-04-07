@@ -23,8 +23,12 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h5>Tell us the size and toppings you prefer on your pizza</h5>
-        <form action="">
+
+        <form id="pizza-order">
+          <div class="form-group">
+            <label for="name"><strong>Your Name:</strong></label>
+            <input type="text" class="form-control" id="name">
+          </div>
           <div class="form-group">
             <label for="size"><strong>Pick a size</strong></label>
             <select class="form-control" id="size">
@@ -39,7 +43,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="pepperoni">
+                  <input class="form-check-input" type="checkbox" name="meat-topping" value="pepperoni">
                   Pepperoni
                 </label>
               </div>
@@ -47,7 +51,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="sausage">
+                  <input class="form-check-input" type="checkbox" name="meat-topping" value="sausage">
                   Sausage
                 </label>
               </div>
@@ -55,7 +59,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="meatball">
+                  <input class="form-check-input" type="checkbox" name="meat-topping" value="meatball">
                   Meatball
                 </label>
               </div>
@@ -65,7 +69,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="bacon">
+                  <input class="form-check-input" type="checkbox" name="meat-topping" value="bacon">
                   Bacon
                 </label>
               </div>
@@ -73,7 +77,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="ham">
+                  <input class="form-check-input" type="checkbox" name="meat-topping" value="ham">
                   Ham
                 </label>
               </div>
@@ -81,7 +85,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="chicken">
+                  <input class="form-check-input" type="checkbox" name="meat-topping" value="chicken">
                   Chicken
                 </label>
               </div>
@@ -93,7 +97,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="mushroom">
+                  <input class="form-check-input" type="checkbox" name="veggie-topping" value="mushroom">
                   Mushrooms
                 </label>
               </div>
@@ -101,7 +105,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="onion">
+                  <input class="form-check-input" type="checkbox" name="veggie-topping" value="onion">
                   Red Onions
                 </label>
               </div>
@@ -109,7 +113,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="olive">
+                  <input class="form-check-input" type="checkbox" name="veggie-topping" value="olive">
                   Black Olives
                 </label>
               </div>
@@ -120,7 +124,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="pineapple">
+                  <input class="form-check-input" type="checkbox" name="veggie-topping" value="pineapple">
                   Pineapple
                 </label>
               </div>
@@ -128,7 +132,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="jalapeno">
+                  <input class="form-check-input" type="checkbox" name="veggie-topping" value="jalapeno">
                   Jalapeno
                 </label>
               </div>
@@ -136,7 +140,7 @@
             <div class="col-md-4 col-sm-12">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="tomato">
+                  <input class="form-check-input" type="checkbox" name="veggie-topping" value="tomato">
                   Tomatos
                 </label>
               </div>
