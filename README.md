@@ -6,7 +6,7 @@
 
 ## Description
 
-Design a pizza order web application for Epicodus Pizzeria. It would calculate the total pizza cost depends on the customer's order type, preference size of pizza and topping.
+Design a pizza order web application for Epicodus Pizzeria. It would calculate the total pizza cost depends on the customer's order type, preference of size of pizza and topping.
 
 ## Setup/Installation Requirements
 
