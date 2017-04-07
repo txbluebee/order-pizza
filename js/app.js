@@ -101,6 +101,8 @@ $(document).ready(function(){
       newPizzaOrder.veggieToppings.push(veggiesInput);
     });
 
+    newPizzaOrder.totalCost();
+
     //Order list
     $("#orderlist ul").append("<li><span class='order-list'>" + newPizzaOrder.name + "</span></li>");
 
@@ -115,15 +117,16 @@ $(document).ready(function(){
       newPizzaOrder.addresses.forEach(function(address){
         $(".p-address").text(address.fullAddress());
       });
+      $(".p-toppings").text("");
       newPizzaOrder.meatToppings.forEach(function(meattopping) {
         $(".p-toppings").append("<li>" + meattopping + "</li>");
       });
       newPizzaOrder.veggieToppings.forEach(function(meattopping) {
         $(".p-toppings").append("<li>" + meattopping + "</li>");
       });
-      newPizzaOrder.totalCost();
       $(".p-price").text(newPizzaOrder.finalCost);
     });
+
 
 
 
