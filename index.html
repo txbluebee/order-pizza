@@ -21,146 +21,226 @@
   </div>
 
   <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-
-        <form id="pizza-order">
-          <div class="form-group">
-            <label for="name"><strong>Your Name:</strong></label>
-            <input type="text" class="form-control" id="name">
-          </div>
-          <div class="form-group">
-            <label for="size"><strong>Pick a size</strong></label>
-            <select class="form-control" id="size">
-              <option value="large">Large</option>
-              <option value = "medium">Medium</option>
-              <option value = "small">Small</option>
-            </select>
-          </div>
-          <!-- Meat Ingredients -->
-          <p><strong>Choose Meat</strong></p>
+    <!-- Order Type -->
+    <div id="order-type">
+      <div class="row">
+        <div class="col-8 offset-2">
+          <h2 class="display-6 mb-4 text-center">Please select: </h2>
           <div class="row">
-            <div class="col-md-4 col-sm-12">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="meat-topping" value="pepperoni">
-                  Pepperoni
-                </label>
-              </div>
+            <div class="col">
+              <button type="button" class="btn btn-success btn-lg btn-block mt-3" id="pickup">Pickup Order</button>
             </div>
-            <div class="col-md-4 col-sm-12">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="meat-topping" value="sausage">
-                  Sausage
-                </label>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="meat-topping" value="meatball">
-                  Meatball
-                </label>
-              </div>
+            <div class="col">
+              <button type="button" class="btn btn-success btn-lg btn-block mt-3" id="delivery">Delivery Order</button>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-4 col-sm-12">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="meat-topping" value="bacon">
-                  Bacon
-                </label>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="meat-topping" value="ham">
-                  Ham
-                </label>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="meat-topping" value="chicken">
-                  Chicken
-                </label>
-              </div>
-            </div>
-          </div>
-          <!-- Veggies Ingredients -->
-          <p><strong>Choose Veggies</strong></p>
-          <div class="row">
-            <div class="col-md-4 col-sm-12">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="veggie-topping" value="mushroom">
-                  Mushrooms
-                </label>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="veggie-topping" value="onion">
-                  Red Onions
-                </label>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="veggie-topping" value="olive">
-                  Black Olives
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4 col-sm-12">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="veggie-topping" value="pineapple">
-                  Pineapple
-                </label>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="veggie-topping" value="jalapeno">
-                  Jalapeno
-                </label>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="veggie-topping" value="tomato">
-                  Tomatos
-                </label>
-              </div>
-            </div>
-          </div>
-           <button type="submit" class="btn btn-primary mt-3">Submit</button>
-
-
-        </form>
-        <section id="orderdetails" class="mt-5">
-          <h4>Hello <span class="customer-name"></span>, here is your order:</h4>
-          <p>You ordered <span class="p-size"></span> size pizza with: </p>
-          <ul class="p-toppings"></ul>
-          <p>Total price is $ <span class="p-price"></span>.00 .</p>
-
-        </section>
+        </div>
       </div>
     </div>
 
+    <!-- Order Form -->
+    <div id="order-form">
+      <div class="row">
+        <div class="col-lg-6">
+          <form id="pizza-order">
+            <div class="form-group row justify-content-center">
+              <label for="name" class="col-2 col-form-label"><strong>Name:</strong></label>
+              <div class="col-8">
+              <input type="text" class="form-control" id="name">
+              </div>
+            </div>
+            <div class="form-group row justify-content-center">
+              <label for="phone" class="col-2 col-form-label"><strong>Phone:</strong></label>
+              <div class="col-8">
+              <input type="tel" class="form-control" id="phone">
+              </div>
+            </div>
+            <div class="form-group row justify-content-center">
+              <label for="date" class="col-2 col-form-label"><strong>Date</strong></label>
+              <div class="col-8">
+                <input class="form-control" type="date" value="" id="date">
+              </div>
+            </div>
+            <div class="form-group row justify-content-center">
+              <label for="time" class="col-4 col-form-label"><strong>Pickup Time: </strong></label>
+              <div class="col-6">
+                <select class="form-control" id="size">
+                  <option value="17pm">17:00p m</option>
+                  <option value = "18pm">18:00 pm</option>
+                  <option value = "19pm">19:00 pm</option>
+                  <option value = "20pm">20:00 pm</option>
+                </select>
+              </div>
+            </div>
+            <div class="delivery-address">
+              <div class="form-group row justify-content-center">
+                <label for="street" class="col-2 col-form-label"><strong>Street:</strong></label>
+                <div class="col-8">
+                <input type="text" class="form-control" id="street">
+                </div>
+              </div>
+              <div class="form-group row justify-content-center">
+                <label for="city" class="col-2 col-form-label"><strong>City:</strong></label>
+                <div class="col-8">
+                <input type="text" class="form-control" id="city">
+                </div>
+              </div>
+              <div class="form-group row justify-content-center">
+                <label for="state" class="col-2 col-form-label"><strong>State:</strong></label>
+                <div class="col-8">
+                <input type="text" class="form-control" id="state">
+                </div>
+              </div>
+              <div class="form-group row justify-content-center">
+                <label for="zipcode" class="col-2 col-form-label"><strong>Zip Code:</strong></label>
+                <div class="col-8">
+                <input type="text" class="form-control" id="zipcode">
+                </div>
+              </div>
+            </div>
+            <div id="order-pizza">
+              <h4>Choose size and toppings: </h4>
+              <div class="form-group row">
+                <label for="size" class="col-2 col-form-label"><strong>Size</strong></label>
+                <div class="col-8">
+                  <select class="form-control" id="size">
+                    <option value="large">Large</option>
+                    <option value = "medium">Medium</option>
+                    <option value = "small">Small</option>
+                  </select>
+                </div>
+              </div>
+              <!-- Meat Ingredients -->
+              <p><strong>Choose Meat</strong></p>
+              <div class="row">
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="meat-topping" value="pepperoni">
+                      Pepperoni
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="meat-topping" value="sausage">
+                      Sausage
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="meat-topping" value="meatball">
+                      Meatball
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="meat-topping" value="bacon">
+                      Bacon
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="meat-topping" value="ham">
+                      Ham
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="meat-topping" value="chicken">
+                      Chicken
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!-- Veggies Ingredients -->
+              <p><strong>Choose Veggies</strong></p>
+              <div class="row">
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="veggie-topping" value="mushroom">
+                      Mushrooms
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="veggie-topping" value="onion">
+                      Red Onions
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="veggie-topping" value="olive">
+                      Black Olives
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="veggie-topping" value="pineapple">
+                      Pineapple
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="veggie-topping" value="jalapeno">
+                      Jalapeno
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="veggie-topping" value="tomato">
+                      Tomatos
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <button type="submit" class="btn btn-primary mt-3">Submit</button>
+          </form>
+        </div>
+        <div class="col-lg-6">
+          <section id="orderlist">
+            <h5>You order:</h5>
+            <ul></ul>
+          </section>
+          <section id="orderdetail" class="mt-5">
+            <h4>Hello <span class="customer-name"></span>, here is your order:</h4>
+            <p>You ordered <span class="p-size"></span> size pizza with: </p>
+            <ul class="p-toppings"></ul>
+            <p>Total price is $ <span class="p-price"></span>.00 .</p>
+          </section>
+        </div>
+      </div>
+    </div>
+
+
   </div>
+
+
 
 
 

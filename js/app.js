@@ -62,5 +62,11 @@ $(document).ready(function(){
 
     newPizzaOrder.totalCost();
     $(".p-price").text(newPizzaOrder.finalCost);
+
+    $("input#name").val("");
+    $("#size").val("");
+    $('input[type=checkbox]').each(function() {
+        this.checked = false;
+    });
   });
 });
